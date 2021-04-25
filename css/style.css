@@ -43,7 +43,7 @@ aside{
 
 /* HEADER******************************************** */
 header{
-    display: flex;
+    display: flex;                      /*PROPRIETA IN COMUNE CON HEADER */
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -69,9 +69,31 @@ header .user-info img{
 
 /* NOTIFY BANNER************************************* */
 .notify-banner{
-    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    background-color: #a2dffe;
+    padding: 15px 20px;
 }
 
+.notify-banner .icon{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 22px;
+    color: #a2dffe;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notify-banner .link-notify a{
+    font-size: 14px;
+    color: #64889b;
+}
+
+/* USER LIST***************************************** */
 .user-list{
     background-color: darkgreen;
     flex-grow: 1;
