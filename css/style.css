@@ -159,8 +159,50 @@ button{
 
 /* DISPLAY CHAT********************* */
 .display-chat{
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     background-image: url("../img/mine.jpg");
+    padding: 50px 60px 30px;
+    overflow-y: auto;
+}
+
+.send-msg,
+.received-msg{
+    display: flex;
+}
+
+.send-msg{
+    justify-content: flex-end;
+}
+
+.send-msg .content{
+    background-color: #ddfabf;
+}
+
+.received-msg .content{
+    background-color: white;
+}
+
+.content{
+    background-color: rgba(255,255,255, 0.3); /* CANCELLARE****** */
+    
+    position: relative;
+    display: flex;
+    min-width: 250px;
+    max-width: 400px;
+    padding: 15px 15px 20px ;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.content .msg-time{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 8px;
+    color: #c0c2c4
 }
 
 /* MSG INPUT BAR */
