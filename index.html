@@ -53,9 +53,9 @@
 
             <!-- CONTACT LIST------------------- -->
             <section class="contacts-list">
-                <div class="contact">
-                    <img src="./img/avatar_1.jpg" alt="">
-                    <h4>Michele</h4>
+                <div v-for="contact in yourPropNameHere" class="contact">
+                    <img :src="'img/avatar'+contact.avatar+'.jpg'" alt="">
+                    <h4>{{contact.name}}</h4>
                 </div>
             </section>
 

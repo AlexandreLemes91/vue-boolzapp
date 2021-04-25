@@ -136,6 +136,11 @@ button{
     align-items: center;
     padding: 10px 20px;
     border-bottom: 1px solid #e6e6e6;
+    transition: 0.3s;
+}
+
+.contact:hover{
+    background-color: #e6e6e6;
 }
 
 .contact:last-child{
@@ -185,8 +190,6 @@ button{
 }
 
 .content{
-    background-color: rgba(255,255,255, 0.3); /* CANCELLARE****** */
-    
     position: relative;
     display: flex;
     min-width: 250px;
@@ -205,7 +208,7 @@ button{
     color: #c0c2c4
 }
 
-/* MSG INPUT BAR */
+/* MSG INPUT BAR **************************/
 .msg-input-bar{
     display: flex;
     align-items: center;
