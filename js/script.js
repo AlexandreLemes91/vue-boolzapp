@@ -90,6 +90,7 @@ const app = new Vue({
 
         indexChat: 0,
         newMessage: "",
+        newAnswer: "Ok!",
     },
 
     methods: {
@@ -101,18 +102,26 @@ const app = new Vue({
             console.log(index); 
             this.indexChat = index;  
         },
-        sendMessage(){
-            console.log("oi");
 
+        /* invio messaggi */
+        sendMessage(){
             if(this.newMessage != ""){
                 this.yourPropNameHere[this.indexChat].messages.push({
-                date: '10/01/2020 15:50:00',
-                message: this.newMessage,
-                status: 'received'});
-            }
-
+                    date: '10/01/2020 15:50:00',
+                    message: this.newMessage,
+                    status: 'sent'},);
+                
+                setTimeout(() =>{
+                    this.yourPropNameHere[this.indexChat].messages.push({
+                        date: '10/01/2020 15:50:00',
+                        message: this.newAnswer,
+                        status: 'received'},);
+                },1000)
+                }
+                
             this.newMessage = "";
-        }
+        },
+        
 
     },
 
