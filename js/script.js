@@ -87,6 +87,15 @@ const app = new Vue({
             ],
         },
         ],
-    }
+
+        indexChat: 0,
+    },
+
+    methods: {
+        showChat(index){
+            console.log(index); 
+            this.indexChat = index;  
+        },
+    },
 
 });

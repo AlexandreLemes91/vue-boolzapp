@@ -51,9 +51,11 @@
                 </div>
             </div>
 
-            <!-- CONTACT LIST------------------- -->
+            <!-- CONTACT LIST----------------- -->
             <section class="contacts-list">
-                <div v-for="contact in yourPropNameHere" class="contact">
+                <div v-for="(contact, index) in yourPropNameHere"
+                @click="showChat(index)"
+                class="contact">
                     <img :src="'img/avatar'+contact.avatar+'.jpg'" alt="">
                     <h4>{{contact.name}}</h4>
                 </div>
@@ -66,7 +68,7 @@
             <!-- HEADER------------------------- -->
             <header>
                 <div class="avatar-info">
-                    <img src="./img/avatar_1.jpg" alt="">
+                    <img :src="'./img/avatar' + yourPropNameHere[indexChat].avatar + '.jpg'" alt="">
                     <div>
                         <h4>Nome Utente</h4>
                         <span class="time-update">Ultimo accesso oggi alle 10:35</span>
@@ -81,19 +83,18 @@
             </header>
 
             <!-- CHAT--------------------------- -->
-            <section class="display-chat">
-                <div class="send-msg">
+            <section v-for="(contact, index) in yourPropNameHere"  class="display-chat"
+            v-if="index === indexChat">
+
+                <div v-for="message in contact.messages"
+                    :class="{'send-msg': message.status == 'sent'}"
+                    class="msg">
                     <div class="content">
-                        <p>MESSAGGIO INVIATO</p>
-                        <span class="msg-time">10/01/20 15:50:10</span>
+                        <p>{{message.message}}</p>
+                        <span class="msg-time">{{message.date}}</span>
                     </div>
                 </div>
-                <div class="received-msg">
-                    <div class="content">
-                        <p>MESSAGGIO RICEVUTO</p>
-                        <span class="msg-time">10/01/20 15:50:10</span>
-                    </div>
-                </div>
+                
             </section>
 
             <!-- MSG INPUT---------------------- -->
