@@ -103,11 +103,15 @@ const app = new Vue({
         },
         sendMessage(){
             console.log("oi");
-            
-            this.yourPropNameHere[this.indexChat].messages.push({
+
+            if(this.newMessage != ""){
+                this.yourPropNameHere[this.indexChat].messages.push({
                 date: '10/01/2020 15:50:00',
                 message: this.newMessage,
                 status: 'received'});
+            }
+
+            this.newMessage = "";
         }
 
     },
