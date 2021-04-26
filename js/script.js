@@ -89,13 +89,27 @@ const app = new Vue({
         ],
 
         indexChat: 0,
+        newMessage: "",
     },
 
     methods: {
-        showChat(index){
+        /**
+         * 
+         * @param {number} index indice della chat corrente
+         */
+        showChat(index){                
             console.log(index); 
             this.indexChat = index;  
         },
+        sendMessage(){
+            console.log("oi");
+            
+            this.yourPropNameHere[this.indexChat].messages.push({
+                date: '10/01/2020 15:50:00',
+                message: this.newMessage,
+                status: 'received'});
+        }
+
     },
 
 });
