@@ -87,7 +87,7 @@
             v-if="index === indexChat">
 
                 <div v-for="message in contact.messages"
-                    :class="{'send-msg': message.status == 'sent'}"
+                    :class="{'send-msg': message.status == 'sent', 'received-msg': message.status == 'received'}"
                     class="msg">
                     <div class="content">
                         <p>{{message.message}}</p>

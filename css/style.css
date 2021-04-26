@@ -172,11 +172,12 @@ button{
     overflow-y: auto;
 }
 
-.msg{
+.received-msg,
+.send-msg{
     display: flex;
 }
 
-.msg.send-msg{
+.send-msg{
     justify-content: flex-end;
 }
 
@@ -184,7 +185,7 @@ button{
     background-color: #ddfabf;
 }
 
-.content{
+.received-msg .content{
     background-color: white;
 }
 
