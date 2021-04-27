@@ -54,6 +54,7 @@
             <!-- CONTACT LIST----------------- -->
             <section class="contacts-list">
                 <div v-for="(contact, index) in yourPropNameHere"
+                :class="{active: index == indexChat}"
                 @click="showChat(index)"
                 class="contact">
                     <img :src="'img/avatar'+contact.avatar+'.jpg'" alt="">
@@ -70,7 +71,7 @@
                 <div class="avatar-info">
                     <img :src="'./img/avatar' + yourPropNameHere[indexChat].avatar + '.jpg'" alt="">
                     <div>
-                        <h4>Nome Utente</h4>
+                        <h4>{{yourPropNameHere[indexChat].name}}</h4>
                         <span class="time-update">Ultimo accesso oggi alle 10:35</span>
                     </div>
                     
@@ -83,10 +84,9 @@
             </header>
 
             <!-- CHAT--------------------------- -->
-            <section v-for="(contact, index) in yourPropNameHere"  class="display-chat"
-            v-if="index === indexChat">
-
-                <div v-for="message in contact.messages"
+            <section class="display-chat">
+ 
+                <div v-for="message in yourPropNameHere[indexChat].messages"
                     :class="{'send-msg': message.status == 'sent', 'received-msg': message.status == 'received'}"
                     class="msg">
                     <div class="content">

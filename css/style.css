@@ -143,6 +143,10 @@ button{
     background-color: #e6e6e6;
 }
 
+.contact.active{
+    background-color: #e6e6e6;    
+}
+
 .contact:last-child{
     border-bottom: unset;
 }
