@@ -91,6 +91,7 @@ const app = new Vue({
         indexChat: 0,
         newMessage: "",
         newAnswer: "Ok!",
+        search: ""
     },
 
     methods: {
@@ -121,8 +122,19 @@ const app = new Vue({
                 
             this.newMessage = "";
         },
-        
 
+        /* filter for search */
+        searchFilter( contact ) {
+            if( !contact.name.toLowerCase().includes(this.search) ){
+                contact.visible = false;
+            }else if(this.search == ""){
+                contact.visible = true;
+            }else{
+                contact.visible = true;
+            }
+            return contact.visible;
+        },
+        
     },
 
 });
