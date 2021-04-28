@@ -111,7 +111,9 @@
                     <a href=""><i class="far fa-smile"></i></a>
                 </div>
 
-                <input v-model.trim="newMessage"
+                <input 
+                    ref="readyForMessage"
+                    v-model.trim="newMessage"
                     @keyup.enter="sendMessage()"
                     type="text" placeholder="Scrivi un messaggio">
 

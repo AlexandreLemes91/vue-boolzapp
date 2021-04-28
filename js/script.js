@@ -107,7 +107,8 @@ const app = new Vue({
          */
         showChat(index){                
             console.log(index); 
-            this.indexChat = index;  
+            this.indexChat = index; 
+            this.$refs.readyForMessage.focus(); 
         },
 
         /* invio messaggi */
