@@ -1,7 +1,7 @@
 dayjs.extend(dayjs_plugin_customParseFormat);
 
 let now = dayjs().format('DD/MM/YYYY HH:mm:ss');
-console.log(now);
+/* onsole.log(now); */
 
 const app = new Vue({
     el: "#app",
@@ -96,7 +96,8 @@ const app = new Vue({
         indexChat: 0,
         newMessage: "",
         newAnswer: "Ok!",
-        search: ""
+        search: "",
+        hide: true,
     },
 
     methods: {
@@ -139,17 +140,26 @@ const app = new Vue({
             }
             return contact.visible;
         },
-        lastAvatarAccess(){
-            const actualChat = this.yourPropNameHere[this.indexChat].messages;
+
+        /* ultimo accesso */
+        lastAvatarAccess(index){
+            const actualChat = this.yourPropNameHere[index].messages;
             let lastMessageTime = ""
             actualChat.forEach((e)=>{
                 if( e.status == "received"){
                     lastMessageTime = e.date;
                 }
-                console.log(lastMessageTime);
+                /* console.log(lastMessageTime); */
             })
             return lastMessageTime;
+        },
+
+        /* nascondi al click */
+        hideElement(){
+            this.hide = false;
+            console.log(this.hide);
         }
+
         
     },
 

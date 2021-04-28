@@ -33,20 +33,21 @@
                 </div>
             </header>
 
-            <div class="notify-banner">
+            <div class="notify-banner"
+                v-show="hide">
                 <div class="icon">
                     <i class="fas fa-bell-slash"></i>
                 </div>
                 <div class="link-notify">
                     <h4>Ricevi notifiche di nuovi messaggi</h4>
-                    <a href="">Attiva notifiche desktop</a>
+                    <a @click="hideElement()" href="#">Attiva notifiche desktop</a>
                 </div>
             </div>
 
             <!-- SEARCH BAR------------------ -->
             <div class="search-bar">
                 <div>
-                    <button><i class="fas fa-search"></i></button>
+                    <button @click="hideElement"><i class="fas fa-search"></i></button>
                     <input
                         v-model.trim="search"  
                         type="text"
@@ -62,7 +63,10 @@
                 @click="showChat(index)"
                 class="contact">
                     <img :src="'img/avatar'+contact.avatar+'.jpg'" alt="">
-                    <h4>{{contact.name}}</h4>
+                    <div>
+                        <h4>{{contact.name}}</h4>
+                        <span class="time-update">{{lastAvatarAccess(index)}}</span>
+                    </div>
                 </div>
             </section>
 
@@ -76,7 +80,7 @@
                     <img :src="'./img/avatar' + yourPropNameHere[indexChat].avatar + '.jpg'" alt="">
                     <div>
                         <h4>{{yourPropNameHere[indexChat].name}}</h4>
-                        <span class="time-update">{{lastAvatarAccess()}}</span>
+                        <span class="time-update">{{lastAvatarAccess(indexChat)}}</span>
                     </div>
                     
                 </div>
@@ -94,7 +98,7 @@
                     :class="{'send-msg': message.status == 'sent', 'received-msg': message.status == 'received'}"
                     class="msg">
                     <div class="content">
-                        <p>{{message.message}}</p>
+                        <div>{{message.message}}</div>
                         <span class="msg-time">{{message.date}}</span>
                     </div>
                 </div>
