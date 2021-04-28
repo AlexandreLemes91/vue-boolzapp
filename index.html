@@ -76,7 +76,7 @@
                     <img :src="'./img/avatar' + yourPropNameHere[indexChat].avatar + '.jpg'" alt="">
                     <div>
                         <h4>{{yourPropNameHere[indexChat].name}}</h4>
-                        <span class="time-update">Ultimo accesso oggi alle 10:35</span>
+                        <span class="time-update">{{lastAvatarAccess()}}</span>
                     </div>
                     
                 </div>
@@ -118,7 +118,11 @@
 
         </section>
     </div>
-    
+
+    <!-- plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/customParseFormat.js"></script>
+    <!-- dayjs -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
     <!-- script -->
     <script src="./js/script.js"></script>
 </body>

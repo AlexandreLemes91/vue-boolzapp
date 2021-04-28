@@ -1,3 +1,8 @@
+dayjs.extend(dayjs_plugin_customParseFormat);
+
+let now = dayjs().format('DD/MM/YYYY HH:mm:ss');
+console.log(now);
+
 const app = new Vue({
     el: "#app",
 
@@ -108,13 +113,13 @@ const app = new Vue({
         sendMessage(){
             if(this.newMessage != ""){
                 this.yourPropNameHere[this.indexChat].messages.push({
-                    date: '10/01/2020 15:50:00',
+                    date: now,
                     message: this.newMessage,
                     status: 'sent'},);
                 
                 setTimeout(() =>{
                     this.yourPropNameHere[this.indexChat].messages.push({
-                        date: '10/01/2020 15:50:00',
+                        date: now,
                         message: this.newAnswer,
                         status: 'received'},);
                 },1000)
@@ -134,6 +139,17 @@ const app = new Vue({
             }
             return contact.visible;
         },
+        lastAvatarAccess(){
+            const actualChat = this.yourPropNameHere[this.indexChat].messages;
+            let lastMessageTime = ""
+            actualChat.forEach((e)=>{
+                if( e.status == "received"){
+                    lastMessageTime = e.date;
+                }
+                console.log(lastMessageTime);
+            })
+            return lastMessageTime;
+        }
         
     },
 
