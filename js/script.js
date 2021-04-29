@@ -131,7 +131,18 @@ const app = new Vue({
         },
 
         /* filter for search */
-        searchFilter( contact ) {
+        searchFilter(){
+            this.yourPropNameHere.forEach((e)=>{
+                if(e.name.toLowerCase().includes( this.search.toLowerCase() ) ){
+                    e.visible = true;
+                }else{
+                    e.visible = false;
+                }
+                console.log(e)
+            });
+        },
+
+        /* searchFilter( contact ) {
             if( !contact.name.toLowerCase().includes(this.search) ){
                 contact.visible = false;
             }else if(this.search == ""){
@@ -140,7 +151,7 @@ const app = new Vue({
                 contact.visible = true;
             }
             return contact.visible;
-        },
+        }, */
 
         /* ultimo accesso */
         lastAvatarAccess(index){

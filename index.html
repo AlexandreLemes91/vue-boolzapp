@@ -47,10 +47,11 @@
             <!-- SEARCH BAR------------------ -->
             <div class="search-bar">
                 <div>
-                    <button @click="hideElement"><i class="fas fa-search"></i></button>
+                    <button><i class="fas fa-search"></i></button>
                     <input
                         v-model.trim="search"  
                         type="text"
+                        @keyup="searchFilter"
                         placeholder="Cerca o inizia una nuova chat">
                 </div>
             </div>
@@ -58,9 +59,9 @@
             <!-- CONTACT LIST----------------- -->
             <section class="contacts-list">
                 <div v-for="(contact, index) in yourPropNameHere"
-                v-show="searchFilter(contact)"
                 :class="{active: index == indexChat}"
                 @click="showChat(index)"
+                v-show="contact.visible"
                 class="contact">
                     <img :src="'img/avatar'+contact.avatar+'.jpg'" alt="">
                     <div>
